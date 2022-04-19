@@ -9,6 +9,7 @@ class Contract {
         companion object{
             val ID="id"
             val NOMBRE="nombre"
+            val ENCARGADO="encargado"
             val NUMERO="numero"
         }
     }

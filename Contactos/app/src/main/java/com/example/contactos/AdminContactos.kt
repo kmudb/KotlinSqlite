@@ -4,7 +4,7 @@ import android.database.DatabaseUtils
 import android.widget.Toast
 
 import kotlinx.android.synthetic.main.activity_main.*
-data class Contacto(var id:Int, var nombre:String, var numero:String)
+data class Contacto(var id:Int, var nombre:String, var encargado:String, var numero:String)
 class AdminContactos {
     //query para ver todos los contactos
     fun getAllContactos():ArrayList<String>?{
@@ -37,8 +37,8 @@ class AdminContactos {
         try {
             val db=AppContactos.DB.writableDatabase
             val query="INSERT INTO ${AppContactos.TB_CONTACTOS} ("+
-                    "${Contract.Contacto.NOMBRE}, ${Contract.Contacto.NUMERO}) "+
-                    "VALUES('${contacto.nombre}','${contacto.numero}');"
+                    "${Contract.Contacto.NOMBRE}, ${Contract.Contacto.ENCARGADO}, ${Contract.Contacto.NUMERO}) "+
+                    "VALUES('${contacto.nombre}','${contacto.encargado}','${contacto.numero}');"
             db.execSQL(query)
             //Toast.makeText(AppContactos.CONTEXT,"Agregado",Toast.LENGTH_SHORT).show()
             db.close()
